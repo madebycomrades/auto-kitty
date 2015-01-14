@@ -5,7 +5,6 @@ AutoKitty helps you sort out complicated group expenses.
 ## Setup
 
 1. Install Meteor https://www.meteor.com/install
-2. ???
 
 ## Dev server
 
