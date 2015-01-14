@@ -1,0 +1,12 @@
+<template name="home">
+    <p>Home!</p>
+    <form class="js-new-kitty-form">
+        <input type="text" name="name" placeholder="Kitty name">
+        <button type="submit">Create</button>
+    </form>
+    <ul>
+        {{#each kitties}}
+        <li>{{name}}</li>
+        {{/each}}
+    </ul>
+</template>
