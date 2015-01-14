@@ -2,6 +2,13 @@ Router.configure({
     layoutTemplate: 'layout'
 });
 
-Router.route('/', function () {
-    this.render('home');
+Router.route('home', {
+    path: '/'
+});
+
+Router.route('kitty', {
+    path: '/:id',
+    data: function () {
+        return Kitties.findOne({_id: this.params.id});
+    }
 });
