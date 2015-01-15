@@ -31,12 +31,12 @@ in the meantime here are the steps to get the app live.
 
 Special folders:
 
-- `client` Client side code
-- `client/compatibility` Client side files that expose a global (e.g. jQuery etc.)
-- `server` Server side code only
+- `client` Client side code. All JS found in here is concatenated and served to the client. All HTML files found in here are bundled into templates. Additionally any CSS files will be concatendated and automatically included on the page.
+- `client/compatibility` Old style JS files that expose a single global (e.g. jQuery etc.)
+- `server` Server side code. All JS found in here is run on the server only.
 - `private` Server side static assets (data files, etc?)
-- `public` Servable public static assets (images, CSS)
-- `tests` Not loaded anywhere, test code
+- `public` Servable public static assets (images, CSS, etc?)
+- `tests` Test code
 
 All other folders contain code usable by both the client and the server, by convention the
 following folders are used:
