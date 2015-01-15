@@ -47,7 +47,7 @@ following folders are used:
 
 ## Packages
 
-Meteor packages are installed using the Atmosphere package manager [https://atmospherejs.com](atmospherejs.com).
+Meteor packages are installed using the Atmosphere package manager [atmospherejs.com](https://atmospherejs.com).
 
 Meteor keeps track of all the installed packages and their versions in `.meteor/versions`, we don't edit this file.
 
