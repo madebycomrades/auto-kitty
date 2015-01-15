@@ -8,7 +8,7 @@ AutoKitty helps you sort out complicated group expenses.
 
 ## Dev server
 
-To start a local server that automatically watches files for changes run:
+To start a local server that automatically watches files for changes in the project root run:
 
 ```
 meteor
