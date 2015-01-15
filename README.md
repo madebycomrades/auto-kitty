@@ -47,7 +47,7 @@ following folders are used:
 
 ## Mongo shell
 
-Metoer uses a local-to-your-project, in-memory, persistant, JavaScript version of MongoDB when you run your dev server, it doesn't install a real MongoDB on your system.
+Metoer uses a local-to-your-project, in-memory, non-persistant, JavaScript version of MongoDB when you run your dev server, it doesn't install a real MongoDB on your system.
 
 To interact with this local version of the database drop into the Mongo shell:
 
