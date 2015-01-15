@@ -78,7 +78,7 @@ Search for documents in a collection which contain certain values:
 db.<collection name>.find({foo: "bar"});
 ```
 
-Create a new document (although will create a document with an `ObjectId()` id, which is different behaviour to objects created through Meteor itself - need to look into this):
+Create a new document (although this will create a document with an `ObjectId()` id, which is different behaviour to documents created through Meteor itself - need to look into this):
 
 ```
 db.<collection name>.insert({foo: "bar"});
