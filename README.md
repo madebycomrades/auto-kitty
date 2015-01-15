@@ -47,22 +47,44 @@ following folders are used:
 
 ## Mongo shell
 
-You can interact with the local version of the database, run the following command to drop into the
-Mongo shell:
+Metoer uses a local-to-your-project, in-memory, persistant, JavaScript version of MongoDB when you run your dev server, it doesn't install a real MongoDB on your system.
+
+To interact with this local version of the database drop into the Mongo shell:
 
 ```
 meteor mongo
 ```
 
-Once inside the Mongo shell you can run Mongo commands to interact with the local db.
+### Mongo shell commands
+
+> Tab completion works well in the shell, so be sure to use it while experimenting with commands.
+
+List all collections:
+
+```
+show collections;
+```
 
 List all documents in a collection:
 
 ```
 db.<collection name>.find();
+db.<collection name>.find().pretty(); // Same but format output for readability
 ```
 
-Nuke the database and start again:
+Search for documents in a collection which contain certain values:
+
+```
+db.<collection name>.find({foo: "bar"});
+```
+
+Create a new document (although will create a document with an `ObjectId()` id, which is different behaviour to objects created through Meteor itself - need to look into this):
+
+```
+db.<collection name>.insert({foo: "bar"});
+```
+
+Nuke the Meteor database and start again:
 
 ```
 db.dropDatabase();
