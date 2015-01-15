@@ -45,6 +45,18 @@ following folders are used:
 - `collections` Shared Collection definitions
 - `routes` Shared route definitions
 
+## Packages
+
+Meteor packages are installed using the Atmosphere package manager [https://atmospherejs.com](atmospherejs.com).
+
+Meteor keeps track of all the installed packages and their versions in `.meteor/versions`, we don't edit this file.
+
+User added packages are defined in `.meteor/packages`. We can edit this file to add packages to our project, or add them automatically (a la `npm install X --save`) with:
+
+```
+meteor add <package name>
+```
+
 ## Mongo shell
 
 Metoer uses a local-to-your-project, in-memory, non-persistant, JavaScript version of MongoDB when you run your dev server, it doesn't install a real MongoDB on your system.
