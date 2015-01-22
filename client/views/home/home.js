@@ -1,20 +1,15 @@
-Template.home.helpers({
-    kitties: function () {
-        return Kitties.find();
-    }
-});
-
 Template.home.events({
     'submit .js-new-kitty-form': function (event) {
 
+        event.preventDefault();
+
         var name = event.target.name.value;
 
-        Kitties.insert({
-            name: name
+        Meteor.call('newKitty', name, function (err, id) {
+
+            if ( err ) return console.log(err);
+
+            Router.go('/'+id);
         });
-
-        event.target.name.value = '';
-
-        return false;
     }
 });

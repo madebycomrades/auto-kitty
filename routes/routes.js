@@ -8,7 +8,12 @@ Router.route('home', {
 
 Router.route('kitty', {
     path: '/:id',
+    waitOn: function () {
+        console.log('Waiting ...', this.params.id);
+        return Meteor.subscribe('oneKitties', this.params.id);
+    },
     data: function () {
-        return Kitties.findOne({_id: this.params.id});
+        console.log('Data!');
+        return Kitties.findOne();
     }
 });
