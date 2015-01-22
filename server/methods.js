@@ -1,4 +1,7 @@
-Kitties = new Mongo.Collection('kitties');
+/**
+ * Meteor.methods are functions that run on the server but are callable from the client using the
+ * `Meteor.call` function.
+ */
 
 Meteor.methods({
     newKitty: function (name) {
