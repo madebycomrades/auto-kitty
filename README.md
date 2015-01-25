@@ -14,18 +14,29 @@ To start a local server that automatically watches files for changes in the proj
 meteor
 ```
 
-## Deployment to Meteor free hosting
+## Branches and deployment
 
-The app is deployed to `autokitty.meteor.com`. Meteor free hosting is not recommended for production
-but is good enough to use for a staging server or similar.
+Branch | Status | URL
+--- | --- | ---
+`develop` | ![Codeship Badge](https://codeship.com/projects/1a2f0500-86e2-0132-5bf1-1acd4a1b78e5/status?branch=develop) | None
+`staging` | ![Codeship Badge](https://codeship.com/projects/1a2f0500-86e2-0132-5bf1-1acd4a1b78e5/status?branch=staging) | [autokitty.meteor.com](http://autokitty.meteor.com)
+`master` | ![Codeship Badge](https://codeship.com/projects/1a2f0500-86e2-0132-5bf1-1acd4a1b78e5/status?branch=master) | ???
 
-In future we should be able to trigger a deployment to `autokitty.meteor.com` from Codeship, but
-in the meantime here are the steps to get the app live.
+Use `develop` for day to day development and feature branching.
+
+PR from `develop` into `staging` to deploy to Meteor free hosting at [autokitty.meteor.com](http://autokitty.meteor.com).
+
+PR from `staging` into `master` to deploy to ???.
+
+### Manual deployment to Meteor free hosting
+
+The local version of your app can be deployed to Meteor free hosting at any time.
 
 1. Create a Meteor developer account https://www.meteor.com
 2. Ask to be added to the `comrades` Meteor organisation
 3. Login to Meteor on the command line with `meteor login`
 3. Run `meteor deploy autokitty` to deploy your local files
+4. Or alternatively if you want to deploy to a new url run something like `meteor deploy some-new-name-here`
 
 ## Folder structure
 
