@@ -1,3 +1,12 @@
 <template name="kitty">
-    <p>Kitty page for: <strong>{{name}}</strong></p>
+    <p>Kitty page for: <strong>{{kitty.name}}</strong></p>
+    <form class="js-add-person-form">
+        <input type="text" name="name" placeholder="Name">
+        <button type="submit">Add a person</button>
+    </form>
+    <ul>
+    {{#each people}}
+        <li data-id="{{_id}}"><a href="{{pathFor route='kittyPerson' personId=_id}}" class="js-person">{{name}}</a> <sup><a href="#" class="js-remove-person-btn">remove</a></sup></li>
+    {{/each}}
+    </ul>
 </template>
