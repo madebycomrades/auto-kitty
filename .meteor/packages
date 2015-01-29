@@ -6,5 +6,5 @@
 
 meteor-platform
 iron:router
-houston:admin
 waitingkuo:normalize
+houston:admin

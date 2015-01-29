@@ -1,4 +1,3 @@
-// This collection is only present on the client. It's used as a recepticle for the 'oneKitty'
-// published record set.
+// A client collection to hold the single kitty document the user views at the /:kittyId route.
 
 TheKitty = new Mongo.Collection('theKitty');

@@ -1,26 +1,26 @@
 /**
- * Here be dragons. Meteor.publish exposes arbitrary result sets to the client that when subscribed
- * to fill up local collections. Typically used for exposing controlled subsets of a server
- * collection. Subscribed-to data on the client is 'reactive', that is, client changes are
- * automatically propagated back to the server and then on to any other subscribed clients which
- * then update their DOMs.
- *
- * @see http://docs.meteor.com/#/full/meteor_publish
- * @see http://docs.meteor.com/#/full/observe
- *
- * @see http://stackoverflow.com/questions/19826804/understanding-meteor-publish-subscribe/21853298#21853298
- * @see http://stackoverflow.com/questions/10565654/how-does-the-messages-count-example-in-meteor-docs-work
- */
+* Here be dragons. Meteor.publish exposes arbitrary result sets to the client that when subscribed
+* to fill up local collections. Typically used for exposing controlled subsets of a server
+* collection. Subscribed-to data on the client is 'reactive', that is, client changes are
+* automatically propagated back to the server and then on to any other subscribed clients which
+* then update their DOMs.
+*
+* @see http://docs.meteor.com/#/full/meteor_publish
+* @see http://docs.meteor.com/#/full/observe
+*
+* @see http://stackoverflow.com/questions/19826804/understanding-meteor-publish-subscribe/21853298#21853298
+* @see http://stackoverflow.com/questions/10565654/how-does-the-messages-count-example-in-meteor-docs-work
+*/
 
 /**
- * Publish a record set called 'oneKitty'. The objective of this record set is just to contain the
- * kitty identified by the supplied id, therefore restricting client to only accessing kitties for
- * which they have an id.
- *
- * @param  {string} id The id of the kitty
- * @param  {string} collection The name of the local client collection to populate
- */
-Meteor.publish('oneKitty', function (id, collection) {
+* Publish a record set called 'oneKitty'. The objective of this record set is just to contain the
+* kitty identified by the supplied id, therefore restricting client to only accessing kitties for
+* which they have an id.
+*
+* @param  {string} id The id of the kitty
+* @param  {string} collection The name of the local client collection to populate
+*/
+Meteor.publish('oneKitty', function (id, localCollection) {
 
     var kitty;
     var self = this;
@@ -40,7 +40,7 @@ Meteor.publish('oneKitty', function (id, collection) {
             kitty = doc;
         },
         changed: function (doc) {
-            self.changed(collection, id, doc);
+            self.changed(localCollection, id, doc);
         }
     });
 
@@ -48,7 +48,7 @@ Meteor.publish('oneKitty', function (id, collection) {
     // value of the 'kitty' var should be a valid document. Put this into the result set by calling
     // the 'this.added' function.
 
-    if ( kitty ) this.added(collection, id, kitty);
+    if ( kitty ) this.added(localCollection, id, kitty);
 
 
     // Notify the subscriber that the result set is ready to use.
@@ -60,4 +60,8 @@ Meteor.publish('oneKitty', function (id, collection) {
     this.onStop(function () {
         handle.stop();
     });
+});
+
+Meteor.publish('allKitties', function () {
+    return Kitties.find();
 });

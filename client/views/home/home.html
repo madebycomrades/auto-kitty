@@ -1,12 +1,13 @@
 <template name="home">
-    <p>Home!</p>
+    <p><em>Helps you sort out complicated group expenses</em> &trade;</p>
     <form class="js-new-kitty-form">
         <input type="text" name="name" placeholder="Kitty name">
-        <button type="submit">Create</button>
+        <button type="submit">Get started</button>
     </form>
+    <p>Listing existing kitties for debug:</p>
     <ul>
-        {{#each .}}
-        <li><a href="/{{_id}}">{{name}}</a></li>
+        {{#each kitties}}
+        <li><a href="{{pathFor route='kitty' kittyId=_id}}">{{name}}</a></li>
         {{/each}}
     </ul>
 </template>
